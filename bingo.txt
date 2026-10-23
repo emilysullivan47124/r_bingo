@@ -1,0 +1,28 @@
+bingo_list <- list() #create an empty list
+
+pull_ball <- function() { #create function called pull_ball
+	
+	bingo_num <- sample(1:75, 1) #generate a random number between 1 and 70
+    if (bingo_num <=15) { #if number is less than 15, add B
+    	print(paste("B", bingo_num))
+    } else if (16 <= bingo_num & bingo_num <= 30) { #if number is between 16 and 30, add I
+    	print(paste("I", bingo_num))
+    } else if (31 <= bingo_num & bingo_num <= 45) { #if number is between 31 and 45, add N
+    	print(paste("N", bingo_num))
+    } else if (46 <= bingo_num & bingo_num <= 60) { #if number is between 46 and 60, add G
+    	print(paste("G", bingo_num))
+    } else { #if number is between 61 and 75, add O
+    	print(paste("O", bingo_num))
+    }
+    bingo_list <<- append(bingo_list, bingo_num) #add the bingo number to the bingo list
+  }
+  
+i <- 1
+    while (i < 26) { #25 times
+		pull_ball() #run pull ball function
+
+  		i <- i + 1 #increase counter by 1
+	}
+
+cat(unlist(bingo_list), sep = ", ") #print bingo list
+cat("\n")
