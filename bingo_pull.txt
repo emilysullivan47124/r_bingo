@@ -1,7 +1,0 @@
-# for each ball pull
-#identify the number
-#compare to the bingo card
-#if on the bingo card, mark that square as "match"
-#look at the ways to win
-#if on one of the bingo options, add a counter for that option +1
-#if counter = 5, bingo=TRUE, stop pulling
