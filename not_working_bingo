@@ -1,0 +1,267 @@
+card_matrix <-matrix() #create an empty matrix
+card_list <-list() #create an empty list
+card_B_col <- list() #B column
+card_I_col <- list() #I column
+card_N_col <- list() #N column
+card_G_col <- list() #G column
+card_O_col <- list() #O column
+BINGO <- 0
+
+card_B_col_count <- 0
+ card_I_col_count <- 0
+ card_N_col_count <- 0
+ card_G_col_count <- 0
+ card_O_col_count <- 0
+ across_One_count <- 0
+ across_Two_count <- 0
+ across_Three_count <- 0
+ across_Four_count <- 0
+ across_Five_count <- 0
+ diag_Up_count <- 0
+ diag_Down_count <- 0
+
+make_card <- function() { #create function called make_card
+#get B column
+
+	B_col <- sample(1:15, 5) #draw 5 numbers
+    B_col <- sort(B_col) #sort smallest to largest
+    B_spot <- paste("B", B_col) #add B
+    #print(B_spot) #print B column
+    card_B_col <<- append(card_B_col, B_spot)
+    card_list <<- append(card_list, card_B_col)
+    
+    #get I column
+
+	I_col <- sample(16:30, 5) #draw 5 numbers
+    I_col <- sort(I_col) #sort smallest to largest
+    I_spot <- paste("I", I_col) #add I
+   # print(I_spot) #print I column
+    card_I_col <<- append(card_I_col, I_spot)
+    card_list <<- append(card_list, card_I_col)
+ 
+	#get N column
+ 
+	N_col <- sample(31:45, 5) #draw 5 numbers
+    N_col <- sort(N_col) #sort smallest to largest
+    N_spot <- paste("N", N_col) #add N
+    #print(N_spot) #print N column
+    card_N_col <<- append(card_N_col, N_spot)
+    card_list <<- append(card_list, card_N_col)
+    
+    #get G column
+ 
+	G_col <- sample(46:60, 5) #draw 5 numbers
+    G_col <- sort(G_col) #sort smallest to largest
+    G_spot <- paste("G", G_col) #add G
+    #print(G_spot) #print G column
+    card_G_col <<- append(card_G_col, G_spot)
+    card_list <<- append(card_list, card_G_col)
+	
+    #get O column
+
+	O_col <- sample(61:75, 5) #draw 5 numbers
+    O_col <- sort(O_col) #sort smallest to largest
+    O_spot <- paste("O", O_col) #add O
+    #print(O_spot) #print O column
+    card_O_col <<- append(card_O_col, O_spot)
+    card_list <<- append(card_list, card_O_col)
+
+    }
+make_card()
+card_matrix <-matrix(card_list, nrow=5, ncol=5) #put all the items in card list in a 5x5 matrix
+card_matrix #print card matrix
+    
+#How to get BINGO
+print('Ways to Get Bingo')
+    
+#print bingo by rows
+cat(unlist(card_B_col), sep = ", ")
+    cat("\n")
+cat(unlist(card_I_col), sep = ", ")
+    cat("\n")    
+cat(unlist(card_N_col), sep = ", ")
+    cat("\n")   
+cat(unlist(card_G_col), sep = ", ")
+    cat("\n") 
+cat(unlist(card_O_col), sep = ", ")
+    cat("\n") 
+
+
+#Across Bingo One
+across_One <- list()#get first index item from each column
+across_One <- append(across_One, card_B_col[1])
+across_One <- append(across_One, card_I_col[1])
+across_One <- append(across_One, card_N_col[1])
+across_One <- append(across_One, card_G_col[1])
+across_One <- append(across_One, card_O_col[1])
+cat(unlist(across_One), sep = ", ")
+    cat("\n")
+
+#Across Bingo Two
+across_Two <- list()#get second index item from each column
+across_Two <- append(across_Two, card_B_col[2])
+across_Two <- append(across_Two, card_I_col[2])
+across_Two <- append(across_Two, card_N_col[2])
+across_Two <- append(across_Two, card_G_col[2])
+across_Two <- append(across_Two, card_O_col[2])
+cat(unlist(across_Two), sep = ", ")
+    cat("\n")
+
+#Across Bingo Three
+across_Three <-list() #get third index item from each column
+across_Three <- append(across_Three, card_B_col[3])
+across_Three <- append(across_Three, card_I_col[3])
+across_Three <- append(across_Three, card_N_col[3])
+across_Three <- append(across_Three, card_G_col[3])
+across_Three <- append(across_Three, card_O_col[3])
+cat(unlist(across_Three), sep = ", ")
+    cat("\n")
+
+#Across Bingo Four
+across_Four <-list() #get fourth index item from each column
+across_Four <- append(across_Four, card_B_col[4])
+across_Four <- append(across_Four, card_I_col[4])
+across_Four <- append(across_Four, card_N_col[4])
+across_Four <- append(across_Four, card_G_col[4])
+across_Four <- append(across_Four, card_O_col[4])
+cat(unlist(across_Four), sep = ", ")
+    cat("\n")
+    
+    
+#Across Bingo Five
+across_Five <-list() #get fifth index item from each column
+across_Five <- append(across_Five, card_B_col[5])
+across_Five <- append(across_Five, card_I_col[5])
+across_Five <- append(across_Five, card_N_col[5])
+across_Five <- append(across_Five, card_G_col[5])
+across_Five <- append(across_Five, card_O_col[5])
+cat(unlist(across_Five), sep = ", ")
+    cat("\n")
+
+#diag_down 
+diag_Down <-list() #diagonal from top left to bottom right
+diag_Down <- append(diag_Down, card_B_col[1])
+diag_Down <- append(diag_Down, card_I_col[2])
+diag_Down <- append(diag_Down, card_N_col[3])
+diag_Down <- append(diag_Down, card_G_col[4])
+diag_Down <- append(diag_Down, card_O_col[5])
+cat(unlist(diag_Down), sep = ", ")
+    cat("\n")
+
+#diag_up 
+diag_Up <-list() #diagonal from bottom left to top right
+diag_Up <- append(diag_Up, card_B_col[5])
+diag_Up <- append(diag_Up, card_I_col[4])
+diag_Up <- append(diag_Up, card_N_col[3])
+diag_Up <- append(diag_Up, card_G_col[2])
+diag_Up <- append(diag_Up, card_O_col[1])
+cat(unlist(diag_Up), sep = ", ")
+    cat("\n")
+    
+bingo_list <- list() #create an empty list
+
+pull_ball <- function() { #create function called pull_ball
+	
+	bingo_num <- sample(1:75, 1) #generate a random number between 1 and 70
+    if (bingo_num <=15) { #if number is less than 15, add B
+    	bingo_num <- paste("B", bingo_num)
+    } else if (16 <= bingo_num & bingo_num <= 30) { #if number is between 16 and 30, add I
+    	bingo_num <- paste("I", bingo_num)
+    } else if (31 <= bingo_num & bingo_num <= 45) { #if number is between 31 and 45, add N
+    	bingo_num <- paste("N", bingo_num)
+    } else if (46 <= bingo_num & bingo_num <= 60) { #if number is between 46 and 60, add G
+    	bingo_num <- paste("G", bingo_num)
+    } else { #if number is between 61 and 75, add O
+    	bingo_num <- paste("O", bingo_num)
+    }
+    print(bingo_num)
+
+ #check for bingo
+ 
+ 
+ if(any(grepl(bingo_num, unlist(card_B_col)))) {
+    	card_B_col_count <- card_B_col_count + 1
+    } else if (any(grepl(bingo_num, unlist(card_I_col)))) {
+        card_I_col_count <- card_I_col_count + 1
+    } else if (any(grepl(bingo_num, unlist(card_N_col)))) {
+        card_N_col_count <- card_N_col_count + 1
+    } else if (any(grepl(bingo_num, unlist(card_G_col)))) {
+       	card_G_col_count <- card_G_col_count + 1
+    } else if (any(grepl(bingo_num, unlist(card_O_col)))) {
+        card_O_col_count <- card_O_col_count + 1
+    } else if (any(grepl(bingo_num, unlist(across_One)))) {
+        across_One_count <- across_One_count + 1
+    } else if (any(grepl(bingo_num, unlist(across_Two)))) {
+        across_Two_count <- across_Two_count + 1
+    } else if (any(grepl(bingo_num, unlist(across_Three)))) {
+        across_Three_count <- across_Three_count + 1
+    } else if (any(grepl(bingo_num, unlist(across_Four)))) {
+        across_Four_count <- across_Four_count + 1
+    } else if (any(grepl(bingo_num, unlist(across_Five)))) {
+        across_Five_count <- across_Five_count + 1
+    } else if (any(grepl(bingo_num, unlist(diag_Up)))) {
+        diag_Up_count <- diag_Up_count + 1
+    } else if (any(grepl(bingo_num, unlist(diag_Down)))) {
+        diag_Down_count <- diag_Down_count + 1
+    }
+
+ if(card_B_col_count == 5) {
+     	print("Bingo!")
+     	print(card_B_col)
+        BINGO <<- BINGO + 1
+ 	} else if (card_I_col_count == 5) {
+      	print("Bingo!")
+        print(card_I_col)
+        BINGO <<- BINGO + 1
+    } else if (card_N_col_count == 5) {
+      	print("Bingo!")
+        print(card_N_col)
+        BINGO <<- BINGO + 1
+    } else if (card_G_col_count == 5) {
+      	print("Bingo!")
+        print(card_G_col)
+        BINGO <<- BINGO + 1
+    } else if (card_O_col_count == 5)  {
+      	print("Bingo!")
+        print(card_O_col)
+        BINGO <<- BINGO + 1
+    } else if (across_One_count == 5) {
+      	print("Bingo")
+        print(across_One)
+        BINGO <<- BINGO + 1
+    } else if (across_Two_count == 5) {
+      	print("Bingo")
+        print(across_Two)
+        BINGO <<- BINGO + 1
+    } else if (across_Three_count == 5) {
+     	print("Bingo")
+        print(across_Three)
+        BINGO <<- BINGO + 1
+    } else if (across_Four_count == 5) {
+      	print("Bingo")
+        print(across_Four)
+        BINGO <<- BINGO + 1
+    } else if (across_Five_count ==5) {
+      	print("Bingo")
+        print(across_Five)
+        BINGO <<- BINGO + 1
+    } else if (diag_Up_count == 5) {
+     	print("Bingo")
+        print(diag_Up)
+        BINGO <<- BINGO + 1
+    } else if (diag_Down_count == 5) {
+      	print("Bingo")
+        print(diag_Down)
+        BINGO <<- BINGO + 1
+    } 
+bingo_list <<- append(bingo_list, bingo_num) #add the bingo number to the bingo list
+}
+  
+
+  
+while (BINGO == 0) {
+		pull_ball() #run pull ball function
+	}
+
+cat(unlist(bingo_list), sep = ", ") #print bingo list
+cat("\n")
